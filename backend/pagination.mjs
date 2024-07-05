@@ -39,18 +39,18 @@ router.get('/pagination', async (req, res) => {
             data: users,
             totalDocuments: totalDocuments,
             currentPage: page,
-            totalDocuments: totalDocuments,
         });
 
     } catch (error) {
         console.error('error: ', error);
         res.status(500).send({
-            message: `UNKNOWN_SERVER_ERROR: ${error.message}`,
+            message: `UNKNOWN_SERVER_ERROR: ${error?.message}`,
         });
     }
     
 });
 
+// server
 app.use('/api/v1', router);
 
 const PORT = process.env.PORT || 3000;
